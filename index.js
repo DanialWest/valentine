@@ -9,20 +9,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'valentine.github.io-main')));
 
-app.post("/foods", async (req, res) => {
-    console.log(req.body);          // this would be the data sent with the request
-   
-});
 
-app.post("/desserts", async (req, res) => {
-    console.log(req.body);          // this would be the data sent with the request
- 
-});
-
-app.post("/activities", async (req, res) => {
-    console.log(req.body);          // this would be the data sent with the request
-   
-});
 
 
   
