@@ -1,13 +1,13 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 const app = express();
 app.use(express.json());
 const mongoose = require("mongoose");
 
-var cors = require('cors')
-
+app.use(bodyParser.json())
 app.use(express.urlencoded({extended:true}));
-app.use(cors())
+
 
 const { MongoClient } = require("mongodb");
 const url = 'mongodb+srv://muntinov06:50KZhhpNMhpPuQcH@dan.rjwcnj5.mongodb.net/valentine'
