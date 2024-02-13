@@ -35,14 +35,14 @@
     <div id="valentineQuestion"><b>Saida, will you be my valentine?</b></div>
     <img src ='cat.gif' alt = 'cat asking question' class="responsive">
     <br>
-    <button class="answerButton" onclick="location.href='thankyou.html'">Yes</button>
+    <button class="answerButton" onclick="location.href='/thankyou'">Yes</button>
     <button class="answerButton" id='runaway-btn' onmouseover="runaway(this)" onclick="runaway(this)">No o(╥﹏╥)o</button>
     <br>
     
 
     <script>
         document.getElementById('noButton').addEventListener('click', function() {
-            var yesButton = document.querySelector('button[onclick*="thankyou.html"]');
+            var yesButton = document.querySelector('button[onclick*="/thankyou"]');
             var currentFontSize = parseInt(window.getComputedStyle(yesButton).fontSize);
             yesButton.style.fontSize = (currentFontSize + 10) + 'px'; // Increase font size by 5px
         });

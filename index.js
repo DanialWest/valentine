@@ -16,28 +16,35 @@ const client = new MongoClient(url);
 const db = client.db("valentine");
 const coll = db.collection("dateinfo");
 
-
+app.post("/date", async (req, res) => {
+    console.log(req.body.nigga);          // this would be the data sent with the request
+    await coll.insertOne({name: req.body.nigga});
+    res.redirect('/foods');
+})
     app.post("/foods", async (req, res) => {
         console.log(req.body);          // this would be the data sent with the request
-        await coll.insertOne({name: req.body})
-        res.redirect('/desserts')
+        await coll.insertOne({name: req.body});
+        res.redirect('/desserts');
     })
 
 
 
     app.post("/desserts", async (req, res) => {
         console.log(req.body);          // this would be the data sent with the request
-        await coll.insertOne({name: req.body})
-        res.redirect('/activities')
+        await coll.insertOne({name: req.body});
+        res.redirect('/activities');
     })
 
     app.post("/activities", async (req, res) => {
         console.log(req.body);          // this would be the data sent with the request
-        await coll.insertOne({name: req.body})
-        res.redirect('/lastpage')
+        await coll.insertOne({name: req.body});
+        res.redirect('/lastpage');
     })
+   
 
-
+    app.get('/foods', (req, res)  => {
+        res.sendFile(__dirname + '/valentine.github.io-main/food.html')
+    })
     app.get('/desserts', (req, res)  => {
         res.sendFile(__dirname + '/valentine.github.io-main/dessert.html')
     })
@@ -50,11 +57,24 @@ const coll = db.collection("dateinfo");
         res.sendFile(__dirname + '/valentine.github.io-main/lastpage.html')
     })
 
+    app.get('/date', (req, res)  => {
+        res.sendFile(__dirname + '/valentine.github.io-main/date.html')
+    })
+    app.get('/card', (req, res)  => {
+        res.sendFile(__dirname + '/valentine.github.io-main/card.html')
+    })
+    app.get('/index', (req, res)  => {
+        res.sendFile(__dirname + '/valentine.github.io-main/index.html')
+    })
+    app.get('/thankyou', (req, res)  => {
+        res.sendFile(__dirname + '/valentine.github.io-main/thankyou.html')
+    })
+
     
     
 
 app.use(express.static(path.join(__dirname, 'valentine.github.io-main')));
 
-app.listen(3000, () => {
+app.listen(80, () => {
     console.log("App working BLYa");
 });
