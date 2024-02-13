@@ -70,7 +70,9 @@ app.post("/date", async (req, res) => {
         res.sendFile(__dirname + '/valentine.github.io-main/thankyou.html')
     })
 
-    
+    app.get('/', (req, res)  => {
+        res.sendFile(__dirname + '/valentine.github.io-main/index.html')
+    })
     
 
 app.use(express.static(path.join(__dirname, 'valentine.github.io-main')));
