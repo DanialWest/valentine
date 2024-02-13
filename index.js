@@ -71,7 +71,7 @@ app.post("/date", async (req, res) => {
     })
 
     app.get('/', (req, res)  => {
-        res.sendFile(__dirname + '/valentine.github.io-main/index.html')
+        res.sendFile(path.join(__dirname, 'valentine.github.io-main/index.html'))
     })
     
 
