@@ -75,6 +75,6 @@ app.post("/date", async (req, res) => {
 
 app.use(express.static(path.join(__dirname, 'valentine.github.io-main')));
 
-app.listen(80, () => {
+app.listen(3000, () => {
     console.log("App working BLYa");
 });
